@@ -37,8 +37,8 @@ for link in character_links:
                 value = value_element.text.strip()
                 table_data[key] = value
 
-    character_data.append({"Name": character_name, "Table Data": table_data})
+    character_data.append({"Name": character_name, **table_data})
 
 
 df = pd.DataFrame(character_data)
-df.to_csv("character_data.csv", index=False)
+df.to_csv("character_data2.csv", index=False)
