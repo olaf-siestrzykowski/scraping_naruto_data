@@ -21,10 +21,15 @@ for link in character_links:
     character_soup = BeautifulSoup(character_response.content, "html.parser")
     infobox_table = character_soup.find("table", class_="infobox")
 
-    table_data = {}
+    table_data = {'Name': [character_name]}
+
+    headers = [header.get_text(strip=True) for header in infobox_table.find_all('th')
+               if 'mainheader' not in header.get('class', [])]
+    headers[0] = 'Name'
 
     rows = infobox_table.find_all("tr")
-    for row in rows:
+
+    for row in rows[1:]:
         header = row.find("th")
         if header:
             key = header.text.strip()
@@ -35,10 +40,12 @@ for link in character_links:
                     span.extract()
 
                 value = value_element.text.strip()
-                table_data[key] = value
+                if key not in table_data:
+                    table_data[key] = []
+                table_data[key].append(value)
 
     character_data.append({"Name": character_name, **table_data})
 
 
 df = pd.DataFrame(character_data)
-df.to_csv("character_data2.csv", index=False)
+df.to_csv("character_data2.csv", index=False, encoding='utf-8-sig')

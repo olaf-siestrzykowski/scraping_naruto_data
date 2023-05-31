@@ -8,6 +8,6 @@ print(df)
 
 #What nature type is most common?
 
-#How frequent is many narute types ninjas
+#How frequent are many nature types ninjas?
 
 #Most common jutsu in each village
