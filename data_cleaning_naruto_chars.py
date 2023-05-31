@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("character_data.csv")
+df = pd.read_csv("character_data3.csv")
 
 print(df)
 
