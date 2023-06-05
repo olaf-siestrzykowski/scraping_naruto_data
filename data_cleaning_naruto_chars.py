@@ -2,6 +2,8 @@ import pandas as pd
 
 df = pd.read_csv("character_data3.csv")
 
+df = df.apply(lambda x: x.str.replace(r"\[|\]|'", ""))
+
 print(df)
 
 #Questions
