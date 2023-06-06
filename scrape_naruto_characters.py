@@ -64,4 +64,4 @@ while url:
         url = None
 
 df = pd.DataFrame(all_character_data)
-df.to_csv("character_data3.csv", index=False, encoding='utf-8-sig')
+df.to_csv("csv's/character_data3.csv", index=False, encoding='utf-8-sig')
