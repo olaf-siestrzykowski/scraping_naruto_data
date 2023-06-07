@@ -22,6 +22,7 @@ df['Tools'] = df['Tools'].str.replace('Tools, , , ', '', regex=True)
 df['Tools'] = df['Tools'].str.replace(', , , ', ', ', regex=True)
 df['Unique Traits'] = df['Unique Traits'].str.replace(r'^Unique Traits, \\t, ', '', regex=True)
 
+# Ninja Rank - take last (in Power BI?)
 print(df.columns)
 
 print(df['Unique Traits'].value_counts())
