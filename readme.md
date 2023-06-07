@@ -16,12 +16,13 @@ Hyūga clan is 2nd biggest and it is true that it is one of the biggest Konoha's
 When you click hamburger menu, slicer with clan chooser shows up.
 ![Nature Types - slicer](screenshots/naruto_pbi_nature2.png)
 
-### 3. Can ninjas be fat? 
+### 3. Are ninjas fit? 
 I categorized ninjas into weight groups.
 ![Weight](screenshots/naruto_pbi_weight1.png)
 This chart has drill down option (51-60 kg below).
 ![Weight 51-60](screenshots/naruto_pbi_weight2.png)
 There are no female ninjas above 60 kg's but overall even males seem to have low weight.
+Ninjas are known to be light and fast. (I think I might create a BMI rating for this)
 ### 4. What are most common jutsus and tools? 
 Coming soon...
 
