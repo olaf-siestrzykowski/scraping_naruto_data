@@ -28,13 +28,3 @@ print(df.columns)
 print(df['Unique Traits'].value_counts())
 
 df.to_csv("csv's/character_data4.csv", index=False, encoding='utf-8-sig')
-
-# Questions to answer:
-
-# 1. What nature type is most common? --> "Nature Type in Clans" page
-
-# 2. What is nature type ninjas distribution among all clans? --> "Nature Type in Clans" page
-
-# 3. Can ninjas be fat? --> "Weight (drill)" page
-
-# 4. What are most common jutsus and tools? --> "?" page
