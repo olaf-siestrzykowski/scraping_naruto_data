@@ -6,8 +6,9 @@ TODO:
 - [x] Generate a pandas dataframe object
 - [x] Perform data cleansing
 - [x] Include next page links in the code
+- [x] Develop visually appealing displays
 
 Pending Tasks:
 - [ ] Create additional columns
 - [ ] Generate separate tables for data containing commas
-- [ ] Develop visually appealing displays
+- [ ] Develop more visually appealing displays

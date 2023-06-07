@@ -7,7 +7,7 @@ df = df.apply(lambda x: x.str.replace(r'\\n', ', ', regex=True))
 df = df.apply(lambda x: x.str.replace(r'"', '', regex=True))
 df = df.applymap(lambda x: ' '.join(x.split()) if isinstance(x, str) else x)
 
-df.loc[~df['Sex'].isin(['Male', 'Female']), 'Sex'] = None
+df.loc[~df['Sex'].isin(['Male', 'Female']), 'Sex'] = 'Unknown'
 
 # I want the height, weight and age of the last occurrence to be considered
 df['Height'] = df['Height'].str.extract(r'(\d+(?:\.\d+)?) cm$')
@@ -29,10 +29,12 @@ print(df['Unique Traits'].value_counts())
 
 df.to_csv("csv's/character_data4.csv", index=False, encoding='utf-8-sig')
 
-#Questions
+# Questions to answer:
 
-#What nature type is most common?
+# 1. What nature type is most common? --> "Nature Type in Clans" page
 
-#How frequent are many nature types ninjas?
+# 2. What is nature type ninjas distribution among all clans? --> "Nature Type in Clans" page
 
-#Most common jutsu in each village
+# 3. Can ninjas be fat? --> "Weight (drill)" page
+
+# 4. What are most common jutsus and tools? --> "?" page
