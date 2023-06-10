@@ -29,7 +29,8 @@ Coming soon...
 ## *Data Structure changes
 I started with one big table containing a lot of unleaned data.
 ![Data Structure START](screenshots/naruto_data1.png)
-I performed data cleaning and modeling with creation of new smaller tables basing on <u>one to one</u> or <u>many to many</u> relations.
+I performed data cleaning and modeling with creation of new smaller tables basing on 
+<ins>one to one</ins>, <ins> many to one </ins> or <ins>many to many</ins> relations.
 ![Data Structure END](screenshots/naruto_data2.png)
 
 ------------------------------------------------
