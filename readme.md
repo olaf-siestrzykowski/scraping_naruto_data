@@ -26,6 +26,12 @@ Ninjas are known to be light and fast. (I think I might create a BMI rating for 
 ### 4. What are most common jutsus and tools? 
 Coming soon...
 
+## *Data Structure changes
+I started with one big table containing a lot of unleaned data.
+![Data Structure START](screenshots/naruto_data1.png)
+I performed data cleaning and modeling with creation of new smaller tables basing on <u>one to one</u> or <u>many to many</u> relations.
+![Data Structure END](screenshots/naruto_data2.png)
+
 ------------------------------------------------
 ### TODO:
 - [x] Integrate dictionary values
