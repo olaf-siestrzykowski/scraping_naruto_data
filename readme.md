@@ -41,8 +41,9 @@ I performed data cleaning and modeling with creation of new smaller tables basin
 - [x] Perform data cleansing
 - [x] Include next page links in the code
 - [x] Develop visually appealing displays
+- [x] Create additional columns
+- [x] Generate separate tables for data containing commas
 
 ### Pending Tasks:
-- [ ] Create additional columns
-- [ ] Generate separate tables for data containing commas
 - [ ] Develop more visually appealing displays
+- [ ] BMI ratio for Q3
