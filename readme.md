@@ -39,7 +39,7 @@ This aligns with the notion that ninjas are known for their agility and speed, e
 To further assess the health of the ninjas, I calculated their BMI ratings using the European standard. <br/>
 BMI was calculated by dividing the mass (kg) by the square of height (m). <br/><br/>
 The following chart displays the BMI ratings:
-![BMI](screenshots/naruto_BMI_raport.png)
+![BMI](screenshots/naruto_BMI_raportv2.png)
 However, it is important to note that certain anomalies were observed in the BMI calculations. <br/><br/>
 <br/>
 For instance, Ōnoki's height is lower than 1m, resulting in an issue with the calculation method. <br/>
@@ -65,6 +65,7 @@ Moreover, considering the context of the Naruto universe within Japanese culture
 Coming soon...
 
 ### IV. Data Structure changes
+
 Initially, the project involved working with a single large table containing uncleaned data.<br/><br/> 
 To improve the data structure, I performed data cleaning and modeling, resulting in the creation of smaller tables based on one-to-one, many-to-one, or many-to-many relationships. <br/><br/>
 The transformation is depicted below:
