@@ -65,7 +65,7 @@ Moreover, considering the context of the Naruto universe within Japanese culture
 Coming soon...
 
 ### IV. Data Structure changes
-
+######
 Initially, the project involved working with a single large table containing uncleaned data.<br/><br/> 
 To improve the data structure, I performed data cleaning and modeling, resulting in the creation of smaller tables based on one-to-one, many-to-one, or many-to-many relationships. <br/><br/>
 The transformation is depicted below:
