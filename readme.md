@@ -8,9 +8,116 @@
 <br/><br/>
 Overall, this project involved web scraping, data cleaning, data modeling, and visualization to gain valuable insights into the Naruto characters' data.
 ### I. Web Scraping:
-Code snippets soon!
+In this section, we'll walk through the process of scraping character data from a website and saving it to a CSV file.
+
+```python
+# Function to scrape character data from a given URL
+def scrape_character_data(url):
+    response = requests.get(url)
+
+    # Send a request to the URL and create a BeautifulSoup object
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, "html.parser")
+    character_links = soup.find_all("a", class_="category-page__member-link")
+    character_data = []
+
+    for link in character_links:
+        character_name = link.text.strip()
+        character_url = urljoin(base_url, link["href"])
+
+        # Send a request to the character URL and create a BeautifulSoup object
+        character_response = requests.get(character_url)
+        character_soup = BeautifulSoup(character_response.content, "html.parser")
+        infobox_table = character_soup.find("table", class_="infobox")
+
+        if infobox_table:
+            # Extract data from the table
+            table_data = {'Name': [character_name]}
+
+            headers = [header.get_text(strip=True) for header in infobox_table.find_all('th')
+                       if 'mainheader' not in header.get('class', [])]
+            headers[0] = 'Name'
+
+            rows = infobox_table.find_all("tr")
+
+            for row in rows[1:]:
+                header = row.find("th")
+                if header:
+                    key = header.text.strip()
+                    value_element = row.find("td")
+
+                    if value_element:
+                        for span in value_element.find_all("span", class_="smwttcontent"):
+                            span.extract()
+
+                        value = value_element.text.strip()
+                        if key not in table_data:
+                            table_data[key] = []
+                        table_data[key].append(value)
+
+            character_data.append({"Name": character_name, **table_data})
+
+    return character_data
+
+
+# Initialize a list to store all character data
+all_character_data = []
+
+# Scrape character data from multiple pages until there are no more next pages
+while url:
+    character_data = scrape_character_data(url)
+    all_character_data.extend(character_data)
+
+    soup = BeautifulSoup(requests.get(url).content, "html.parser")
+    next_link = soup.find("a", class_="category-page__pagination-next")
+    if next_link:
+        url = urljoin(base_url, next_link["href"])
+    else:
+        url = None
+
+# Create a DataFrame from the scraped character data
+df = pd.DataFrame(all_character_data)
+
+# Save the DataFrame to a CSV file
+df.to_csv("csv's/character_data3.csv", index=False, encoding='utf-8-sig')
+```
 ### II. Data Cleaning:
-Code snippets soon!
+In this section, we'll walk through the data cleaning steps performed on the character data.
+```python
+import pandas as pd
+
+# Read the CSV file (created during the web scraping part)
+df = pd.read_csv("csv's/character_data3.csv")
+
+# Remove unwanted characters and whitespace
+df = df.apply(lambda x: x.str.replace(r"\[|\]|'", ""))
+df = df.apply(lambda x: x.str.replace(r'\\n', ', ', regex=True))
+df = df.apply(lambda x: x.str.replace(r'"', '', regex=True))
+df = df.applymap(lambda x: ' '.join(x.split()) if isinstance(x, str) else x)
+
+# Set unknown values for 'Sex' column
+df.loc[~df['Sex'].isin(['Male', 'Female']), 'Sex'] = 'Unknown'
+
+# Extract numeric values for 'Height', 'Weight', and 'Age'
+# Note: Age, Height, and Weight values were collected from different series (Naruto|Naruto Shippuden|Boruto).
+# We have considered the most recent occurrence for each character.
+
+df['Height'] = df['Height'].str.extract(r'(\d+(?:\.\d+)?) cm$')
+df['Weight'] = df['Weight'].str.extract(r'(\d+(?:\.\d+)?) kg$')
+df['Age'] = df['Age'].str.extract(r'(\d+)$')
+
+# Removing specific and unwanted prefixes
+df['Family'] = df['Family'].str.replace(r'^Family, \\t, ', '', regex=True)
+df['Nature Type'] = df['Nature Type'].str.replace('Nature Type, , ', '', regex=True)
+df['Jutsu'] = df['Jutsu'].str.replace('Jutsu, , , ', '', regex=True)
+df['Jutsu'] = df['Jutsu'].str.replace(', , , ', ', ', regex=True)
+df['Tools'] = df['Tools'].str.replace('Tools, , , ', '', regex=True)
+df['Tools'] = df['Tools'].str.replace(', , , ', ', ', regex=True)
+df['Unique Traits'] = df['Unique Traits'].str.replace(r'^Unique Traits, \\t, ', '', regex=True)
+
+# Export to CSV file
+df.to_csv("csv's/character_data4.csv", index=False, encoding='utf-8-sig')
+```
 ### III. Visualization - Questions and Findings:
 Questions to answer:
 
@@ -84,8 +191,8 @@ These changes aimed to enhance data organization and facilitate more efficient a
 - [x] Create additional columns
 - [x] Generate separate tables for data containing commas
 - [x] BMI ratio (III.3.1.)
+- [x] Paste code snippets (points I. and II.)
 
 ### Pending Tasks:
 - [ ] Develop EVEN more visually appealing displays!
 - [ ] Jutsu and Tools all charts
-- [ ] Paste code snippets (points I. and II.)
