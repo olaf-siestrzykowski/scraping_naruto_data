@@ -171,6 +171,8 @@ Moreover, considering the context of the Naruto universe within Japanese culture
 ### III.4 What are most common jutsus and tools? 
 Coming soon...
 
+### III.5 What is the relationship between a character's rank and their Jutsu/Tools?
+Analyzing the correlation between a character's rank (e.g., Kage, Chunin, Jonin) and their abilities can reveal any trends or patterns. You can explore if higher-ranked characters tend to possess stronger abilities.
 ### IV. Data Structure changes
 <p> Initially, the project involved working with a single large table containing uncleaned data.<br/><br/> 
 To improve the data structure, I performed data cleaning and modeling, resulting in the creation of smaller tables based on one-to-one, many-to-one, or many-to-many relationships. <br/><br/>
