@@ -1,4 +1,29 @@
 ## Naruto Wiki Analysis: Unveiling the Shinobi Secrets
+### STATISTICS UPDATE!
+##### Thanks to: Naruto Secret: Scroll of Characters 1-3 Official Databooks
+### Visualization - Questions and Findings:
+### 1. What is statistics distribution among different databooks?
+![Stats by Databook](screenshots/naruto_stats_by_databook.png)
+Displayed above is a ribbon chart presenting the sum of each stat and its changes between different Naruto Databooks. 
+Throughout all the Databooks, Ninjutsu maintains its position as the top-ranking stat, showcasing its consistent significance and dominance among the ninjas abilities.
+<br/><br/>
+Interestingly, Hand Seals, an essential aspect in the Naruto anime, remains a crucial skill from the start. 
+However, unlike other statistics that show notable growth, Hand Seals drop from the second-highest rank to the sixth. 
+This indicates that while still important, Hand Seals might not undergo as significant development compared to other skills.
+<br/><br/>
+The most remarkable improvement can be observed in the Intelligence stat, rising from the fourth position to the second. 
+This enhancement aligns with the anime's trend of fights becoming more intricate and strategic, necessitating the ability to predict enemy movements and strategies.
+<br/><br/>
+While Genjutsu ranks lowest among the stats presented here, it is important to note that not every ninja possesses this skill. 
+Despite its lower standing, Genjutsu remains a formidable technique utilized by those skilled in its usage.
+### 2. Who is the strongest ninja?
+![Stats by Char](screenshots/naruto_stat_by_char.png)
+#### Itachi Uchiha and Legendary Sannin - Icons of Power:
+With exceptional skills and unmatched total stat sums, Itachi Uchiha and the Legendary Sannin stand as icons of power in the Naruto universe. 
+Their legacies and impact on the series are a testament to their status as some of the most legendary and influential characters in the franchise.
+<br/>
+![Itachi Uchiha](screenshots/itachi_uchiha.png)
+## Base Project
 #### In this project: 
 - Utilized **Python (BeautifulSoup)** library to scrape data from the fandom Naruto wiki, extracting character information.
 - I cleaned the data with **pandas** library ensuring the data was structured appropriately for analysis.
@@ -7,7 +32,10 @@
 - Leveraged Power BI Desktop to create insightful visuals that provide answers to specific questions regarding the Naruto dataset.
 <br/><br/>
 Overall, this project involved web scraping, data cleaning, data modeling, and visualization to gain valuable insights into the Naruto characters' data.
+
 ### I. Web Scraping:
+<details>
+<summary> Code snippets</summary>
 In this section, we'll walk through the process of scraping character data from a website and saving it to a CSV file.
 
 ```python
@@ -81,8 +109,13 @@ df = pd.DataFrame(all_character_data)
 # Save the DataFrame to a CSV file
 df.to_csv("csv's/character_data3.csv", index=False, encoding='utf-8-sig')
 ```
+</details>
+
 ### II. Data Cleaning:
+<details>
+<summary> Code snippets </summary>
 In this section, we'll walk through the data cleaning steps performed on the character data.
+
 ```python
 import pandas as pd
 
@@ -118,6 +151,8 @@ df['Unique Traits'] = df['Unique Traits'].str.replace(r'^Unique Traits, \\t, ', 
 # Export to CSV file
 df.to_csv("csv's/character_data4.csv", index=False, encoding='utf-8-sig')
 ```
+</details>
+
 ### III. Visualization - Questions and Findings:
 Questions to answer:
 
@@ -168,7 +203,34 @@ It is important to remember that ninjas undergo rigorous training to improve the
 Moreover, considering the context of the Naruto universe within Japanese culture, it is worth noting that Japanese people are known for their consumption of raw food, which contributes to longevity and overall health, even with lower body weight.
 
 ### III.4 What is the relationship between a character's rank and their Jutsu/Tools?
-Analyzing the correlation between a character's rank (e.g., Kage, Chunin, Jonin) and their abilities can reveal any trends or patterns. We will explore if higher-ranked characters tend to possess stronger abilities.
+In our dataset, we have categorized the Ninja Rank Hierarchy as follows:
+1. Kage
+2. Jonin
+3. ANBU/Chubu
+4. Tokubetsu Jonin
+5. Chunin
+6. Genin
+7. Academy Student
+![Jutsu and Tools Counts by Ninja Rank](screenshots/naruto_jutsu_tool.png)
+Using this hierarchy, we prepared a visual representation with the average count of characters jutsu and tools split by their respective Ninja Ranks. 
+Our analysis reveals some interesting patterns and insights:
+<br/><br/>
+Kage, the highest-ranked ninjas, have the highest average jutsu count, with an average of 12.0 jutsu. 
+This position aligns with the expectation that Kage-level ninjas possess a wide range of powerful and diverse abilities.
+<br/><br/>
+Surprisingly, Academy Students, who are the lowest-ranked in the hierarchy, have the third-highest average jutsu count at 7.3. 
+This unexpected result might be due to certain special cases or unique characters among Academy Students.
+<br/><br/>
+Jonin, ranking second in the hierarchy, have an average jutsu count of 5.0, positioning them in the middle of the list.
+<br/><br/>
+The small sample size of Tokubetsu Jonin (with only 18 records) might be a reason for their lower average jutsu counts (2.7).
+<br/><br/>
+Among all characters, the maximum jutsu count is 29, shared by 12 characters. 
+Additionally, 25 characters have 20 or more jutsu, indicating a significant number of highly skilled ninjas in our dataset.
+<br/><br/>
+This analysis sheds light on the relationship between Ninja Rank and abilities. 
+While Kage-level ninjas possess the highest average jutsu count as expected, Academy Students' relatively high jutsu count is an intriguing observation that may warrant further investigation. 
+The relatively lower average jutsu counts for Tokubetsu Jonin are likely influenced by their limited representation in the dataset.
 
 ### IV. Data Structure changes
 <p> Initially, the project involved working with a single large table containing uncleaned data.<br/><br/> 
@@ -191,7 +253,12 @@ These changes aimed to enhance data organization and facilitate more efficient a
 - [x] Generate separate tables for data containing commas
 - [x] BMI ratio (III.3.1.)
 - [x] Paste code snippets (points I. and II.)
+- [x] Develop EVEN more visually appealing displays!
+- [x] Jutsu and Tools all charts
+- [x] Scrape Ninja Stats
+- [x] Strongest ninja by stats
+- [x] Statistics distribution by databook
+- [x] Itachi Uchiha Stat page
 
 ### Pending Tasks:
-- [ ] Develop EVEN more visually appealing displays!
-- [ ] Jutsu and Tools all charts
+- [ ] Share report
